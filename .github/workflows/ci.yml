@@ -57,7 +57,7 @@ jobs:
         cd ..
         
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: vaultpin-banking-system-java-${{ matrix.java }}
         path: |
@@ -108,7 +108,6 @@ jobs:
       uses: SonarSource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       continue-on-error: true
       
   release:
