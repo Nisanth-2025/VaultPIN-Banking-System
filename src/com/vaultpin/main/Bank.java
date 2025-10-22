@@ -11,28 +11,26 @@ public class Bank{
     {
         char ch = ' ';
         System.out.println("Welcome to VaultPIN Banking System");
-        Menu obj1 = new Menu();
+        Menu mn = new Menu();
+        mn.Choose_Menu();
         CreateAcc ca = new CreateAcc();
         User us = new User(ca);
         Admin ad = new Admin();
-        while (ch != '4')
+        while (ch != '3')
         {
-            ch = obj1.getchoice();
+            ch = mn.getchoice();
             switch(ch)
             {
                 case '1':
-                ca.Extract_Info();
+                ca.Get_User_Info();
                 break;
                 case '2':
                 us.verify_Login();
                 break;
-                case '3':
-                ad.Admin1();
-                break;
             }
-            if(ch != '4')
+            if(ch != '3')
             {
-                obj1.Choose_Menu();
+                mn.Choose_Menu();
             }
         }
         System.out.println("Exit Successful !");

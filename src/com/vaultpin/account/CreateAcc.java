@@ -9,6 +9,8 @@ public class CreateAcc
     private double balance;
     private long acc_num;
 
+    Scanner sc = new Scanner(System.in);
+
     protected static HashMap <Integer,Long> user_acc_no = new HashMap<>();
     protected static HashMap <Long,String> user_name = new HashMap<>();
     protected static HashMap <Long,Integer> user_pin = new HashMap<>();
@@ -21,9 +23,8 @@ public class CreateAcc
         balance=0;
         acc_num=0;
     }
-    public void Extract_Info()
+    public void Get_User_Info()
     {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Enter your Name : ");
         name=sc.nextLine();
         while(true)
@@ -47,19 +48,9 @@ public class CreateAcc
         System.out.println("Enter your Initial Deposit : ");
         balance = sc.nextInt();
         System.out.println("Creating Account.Please Wait ...");
-        try
-        {
-            Thread.sleep(3000);
-        }
-            
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-        Create_Acc();
     }
 
-    public void Create_Acc()
+    public void Create_User_Acc()
     {
         acc_num = 1000000000L + (long)(new java.security.SecureRandom().nextDouble() * 9000000000L);
         user_name.put(acc_num,name);
@@ -69,16 +60,8 @@ public class CreateAcc
         System.out.println("Accout Creation Successful.");
         Acc_Summary();
         System.out.println("Redirecting.Please Wait...");
-        try
-        {
-            Thread.sleep(3000);
-        }
-            
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
     }
+
     public void Acc_Summary()
     {
         System.out.println("===========================================");
@@ -88,5 +71,6 @@ public class CreateAcc
         System.err.println("Balance:" + user_balance.get(acc_num));
         System.out.println("===========================================");
     }
+    
     
 }

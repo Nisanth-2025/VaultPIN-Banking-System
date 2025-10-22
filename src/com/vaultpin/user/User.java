@@ -13,6 +13,7 @@ public class User extends CreateAcc
     private char choice;
     CreateAcc ca;
     Scanner sc = new Scanner(System.in);
+
     public User(CreateAcc ca)
     {
         this.ca = ca;
